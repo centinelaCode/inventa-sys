@@ -1,6 +1,7 @@
 import express from "express";
 
 import usersRoutes from "../routes/usersRoutes.js";
+import { conectarDB } from "../config/db.js";
 
 class Server {
   constructor() {
@@ -8,11 +9,19 @@ class Server {
     this.port = process.env.PORT;
     this.usersRoutePath = "/api/users";
 
+    //Conexión a DB
+    this.conectDB();
+
     //Middlewares
     this.middlewares();
 
     // Routes
     this.routes();
+  }
+
+  // metodo conectDB
+  async conectDB() {
+    await conectarDB();
   }
 
   // metodos middlewares
