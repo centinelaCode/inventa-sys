@@ -1,5 +1,7 @@
 import express from "express";
 
+import routesUser from "../routes/userRoutes.js";
+
 class Server {
   constructor() {
     this.app = express();
@@ -12,17 +14,18 @@ class Server {
     this.routes();
   }
 
+  // metodos middlewares
   middlewares() {
     // directorio publico
     this.app.use(express.static("public"));
   }
 
+  // metodo para las routes de la aplicación
   routes() {
-    this.app.use("/api", (req, res) => {
-      res.send("Hola Mundo");
-    });
+    this.app.use("/api/users", routesUser);
   }
 
+  // metodo listen
   listen() {
     this.app.listen(this.port, () => {
       console.log(`Server run on port ${this.port}`);
