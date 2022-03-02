@@ -5,13 +5,21 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
 
+    //Middlewares
+    this.middlewares();
+
     // Routes
     this.routes();
   }
 
+  middlewares() {
+    // directorio publico
+    this.app.use(express.static("public"));
+  }
+
   routes() {
     this.app.use("/api", (req, res) => {
-      res.send("Hola Mundo bofos");
+      res.send("Hola Mundo");
     });
   }
 
