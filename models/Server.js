@@ -1,6 +1,6 @@
 import express from "express";
 
-import routesUser from "../routes/userRoutes.js";
+import usersRoutes from "../routes/usersRoutes.js";
 
 class Server {
   constructor() {
@@ -23,7 +23,7 @@ class Server {
 
   // metodo para las routes de la aplicación
   routes() {
-    this.app.use(this.usersRoutePath, routesUser);
+    this.app.use(this.usersRoutePath, usersRoutes);
   }
 
   // metodo listen
