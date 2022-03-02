@@ -1,6 +1,7 @@
 {
   "name": "inventa-backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "Sistema para inventario",
   "main": "index.js",
   "scripts": {
