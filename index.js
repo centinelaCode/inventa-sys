@@ -1,14 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import express from "express";
+import Server from "./models/Server.js";
 
-const app = express();
+// Hacemos la instancia del Server
+const server = new Server();
 
-app.use("/", (req, res) => {
-  res.send("Hola mundo con express!!");
-});
-
-app.listen(process.env.PORT, () => {
-  console.log(`Server run on port ${process.env.PORT}`);
-});
+// Ejecutamos el metodo listen
+server.listen();
