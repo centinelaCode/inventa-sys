@@ -6,6 +6,7 @@ class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
+    this.usersRoutePath = "/api/users";
 
     //Middlewares
     this.middlewares();
@@ -22,7 +23,7 @@ class Server {
 
   // metodo para las routes de la aplicación
   routes() {
-    this.app.use("/api/users", routesUser);
+    this.app.use(this.usersRoutePath, routesUser);
   }
 
   // metodo listen
